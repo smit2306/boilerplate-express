@@ -1,24 +1,28 @@
 {
-  "name": "fcc-learn-node-with-express",
-  "version": "0.1.0",
-  "dependencies": {
-    "@types/express": "^4.17.9",
-    "body-parser": "^1.15.2",
-    "cookie-parser": "^1.4.3",
-    "express": "^4.14.0",
-    "fcc-express-bground": "https://github.com/freeCodeCamp/fcc-express-bground-pkg.git"
-  },
-  "main": "server.js",
-  "scripts": {
-    "start": "npm run build && node dist/server.js",
-    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files"
-  },
-  "engines": {
-    "node": "4.4.5"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "rimraf": "^3.0.2"
-  }
+    "name": "fcc-learn-node-with-express",
+    "version": "0.1.0",
+    "dependencies": {
+        "@types/express": "^4.17.9",
+        "body-parser": "^1.15.2",
+        "cookie-parser": "^1.4.3",
+        "dotenv": "^8.2.0",
+        "express": "^4.14.0",
+        "fcc-express-bground": "https://github.com/freeCodeCamp/fcc-express-bground-pkg.git"
+    },
+    "main": "server.js",
+    "scripts": {
+        "start": "npm run build && node dist/server.js",
+        "start:watch": "nodemon --config ./nodemon.json",
+        "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files && npm run cp:env",
+        "cp:env": "cp ./.env ./dist/.env"
+    },
+    "engines": {
+        "node": "4.4.5"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-preset-env": "^1.7.0",
+        "nodemon": "^2.0.6",
+        "rimraf": "^3.0.2"
+    }
 }
