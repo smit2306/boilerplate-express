@@ -27,5 +27,13 @@ const middlewareFunc = express.static(staticFolder);
 app.use(middlewareFunc); // mount the middleware function
 
 // =====================================================================================================================
+// 5th exercise: creating a rest endpoint and passing a json
+
+app.get('/json', (_, res) => {
+    const data = { message: 'Hello json' };
+    res.json(data);
+});
+
+// =====================================================================================================================
 // module exports
 module.exports = app;
