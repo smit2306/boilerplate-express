@@ -43,7 +43,7 @@ app.use(middlewareFunc); // mount the middleware function
 
 app.get('/json', (_, res) => {
     let data = { message: 'Hello json' };
-    if (process.env.MESSAGE_STYLE) {
+    if (process.env.MESSAGE_STYLE === 'uppercase') {
         data.message = data.message.toUpperCase();
     }
     res.json(data);
