@@ -13,7 +13,7 @@ console.log('Hello World');
 
 // third exercise: serving an html file
 const indexHtml = __dirname + '/views/index.html';
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
     res.sendFile(indexHtml);
 });
 // module exports
