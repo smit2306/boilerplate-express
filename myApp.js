@@ -6,10 +6,15 @@ var app = express();
 console.log('Hello World');
 
 // second exercise
-app.get('/', (req, res) => {
-    console.log('This is the req param: ', req);
-    res.send('Hello Express');
-});
+//app.get('/', (req, res) => {
+//console.log('This is the req param: ', req);
+//res.send('Hello Express');
+//});
 
+// third exercise: serving an html file
+const indexHtml = __dirname + '/views/index.html';
+app.get('/', (req, res) => {
+    res.sendFile(indexHtml);
+});
 // module exports
 module.exports = app;
