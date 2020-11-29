@@ -13,8 +13,7 @@
     "scripts": {
         "start": "npm run build && node dist/server.js",
         "start:watch": "nodemon --config ./nodemon.json",
-        "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files && npm run cp:env",
-        "cp:env": "cp ./.env ./dist/.env"
+        "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files"
     },
     "engines": {
         "node": "4.4.5"

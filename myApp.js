@@ -1,4 +1,8 @@
 import express from 'express';
+import * as dotenv from 'dotenv';
+// for using .env files
+dotenv.config();
+
 // var express = require('express');
 var app = express();
 
@@ -29,11 +33,21 @@ app.use(middlewareFunc); // mount the middleware function
 // =====================================================================================================================
 // 5th exercise: creating a rest endpoint and passing a json
 
-app.get('/json', (_, res) => {
-    const data = { message: 'Hello json' };
-    res.json(data);
-});
+//app.get('/json', (_, res) => {
+//const data = { message: 'Hello json' };
+//res.json(data);
+//});
 
 // =====================================================================================================================
+// 6th exercise: using .env file for message styling
+
+app.get('/json', (_, res) => {
+    let data = { message: 'Hello json' };
+    if (process.env.MESSAGE_STYLE) {
+        data.message = data.message.toUpperCase();
+    }
+    res.json(data);
+});
+// ====================================================================================================================
 // module exports
 module.exports = app;
