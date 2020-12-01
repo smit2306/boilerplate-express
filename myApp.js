@@ -11,10 +11,12 @@ var app = express();
 // used after mounting the static function
 // console.log(req.method, ' ', req.path, ' - ', req.ip);
 
-const rootLogger = (req, _, next) => {
-    console.log(req.method, ' ', req.path, ' - ', req.ip);
+var rootLogger = (req, res, next) => {
+    let message = req.method + ' ' + req.path + ' - ' + req.ip;
+    console.log(message);
     next();
 };
+app.use(rootLogger); // mounting the root logger
 
 // =====================================================================================================================
 // first exercise
@@ -39,7 +41,6 @@ app.get('/', (_, res) => {
 const staticFolder = __dirname + '/public';
 const middlewareFunc = express.static(staticFolder);
 app.use(middlewareFunc); // mount the middleware function
-app.use(rootLogger); // mounting the root logger
 
 // =====================================================================================================================
 // 5th exercise: creating a rest endpoint and passing a json
