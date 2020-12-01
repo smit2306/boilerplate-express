@@ -7,6 +7,15 @@ dotenv.config();
 var app = express();
 
 // =====================================================================================================================
+// 7th exercise a root level logger as middleware function
+// console.log(req.method, ' ', req.path, ' - ', req.ip);
+
+app.use((req, _, next) => {
+    console.log(req.method, ' ', req.path, ' - ', req.ip);
+    next();
+});
+
+// =====================================================================================================================
 // first exercise
 console.log('Hello World');
 
