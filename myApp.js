@@ -93,6 +93,13 @@ app.get('/name', (req, res) => {
 // place it before all the routes !
 
 /** 12) Get data form POST  */
+app.post('/name', (req, res) => {
+    const { first, last } = req.body;
+    const data = {
+        name: first + ' ' + last,
+    };
+    res.json(data);
+});
 
 // This would be part of the basic setup of an Express app
 // but to allow FCC to run tests, the server is already active
