@@ -1,4 +1,5 @@
 import express from 'express';
+import * as bodyParser from 'body-parser';
 import * as dotenv from 'dotenv';
 // for using .env files
 dotenv.config();
@@ -10,6 +11,7 @@ var app = express();
 app.use(rootLogger); // mounting the root logger
 
 // --> 11)  Mount the body-parser middleware  here
+app.use(bodyParser.urlencoded({ extended: false }));
 
 /** 1) Meet the node console. */
 console.log('Hello World');
