@@ -55,6 +55,19 @@ function rootLogger(req, res, next) {
 }
 
 /** 8) Chaining middleware. A Time server */
+app.get(
+    '/now',
+    (req, res, next) => {
+        // this is middleware function
+        req.time = new Date().toString();
+        next();
+    },
+    (req, res) => {
+        // this is the handler function
+        const data = { time: req.time };
+        res.json(data);
+    },
+);
 
 /** 9)  Get input from client - Route parameters */
 
